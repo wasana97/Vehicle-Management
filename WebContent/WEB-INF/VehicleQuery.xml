@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- by Udara Samaratunge Department of Software Engineering OOP 
+	SQL queries -->
+<Querys>
+
+	<!-- Create table vehicle Query -->
+	<query id="create_vehicle_table">
+        <![CDATA[
+            CREATE TABLE vehicle(
+				vehicleID varchar(10) not null,
+				vehicleNumber varchar(15),
+				brand varchar(15),
+				ownerNIC varchar(15),
+				noOfPassenger varchar(2),
+				primary key (vehicleID)
+			)
+        ]]>
+	</query>
+
+	<!-- DROP TABLE VEHICLES Query -->
+	<query id="drop_table">
+         <![CDATA[        
+            DROP TABLE IF EXISTS vehicle 
+        ]]>
+	</query>
+
+	<!-- Select all customer orders Query -->
+	<query id="insert_vehicle">
+        <![CDATA[
+          	insert into vehicle (vehicleID, vehicleNumber, brand,ownerNIC,noOfPassenger) 
+          	values (?, ?, ?, ?, ?)
+        ]]>
+	</query>
+
+	<!-- Select a particular vehicle by id Query -->
+	<query id="vehicle_by_id">
+         <![CDATA[        
+            select * from vehicle where vehicle.vehicleID = ?
+        ]]>
+	</query>
+
+	<!-- Select all vehicles -->
+	<query id="all_vehicles">
+         <![CDATA[        
+            select * from vehicle
+        ]]>
+	</query>
+
+	<!-- Delete a particular vehicle by id Query -->
+	<query id="remove_vehicle">
+         <![CDATA[        
+            delete from vehicle where vehicle.vehicleID = ?
+        ]]>
+	</query>
+	
+	<!-- Update a particular vehicle by id Query -->
+	<query id="update_vehicle">
+         <![CDATA[        
+            update vehicle as v 
+            set v.vehicleNumber = ?, v.brand = ?, v.ownerNIC = ?, v.noOfPassenger = ? 
+            where v.vehicleID = ?
+        ]]>
+	</query>
+	
+		<!-- Get vehicle IDs Query -->
+	<query id="vehicle_ids">
+         <![CDATA[        
+            select v.vehicleID from vehicle as v
+        ]]>
+	</query>
+
+</Querys>
